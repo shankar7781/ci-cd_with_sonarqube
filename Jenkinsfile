@@ -40,7 +40,7 @@ pipeline{
                  when { expression {  params.action == 'create' } }
                steps{
                     script{
-                       staticCodeAnalysis()
+                       staticCodeAnalysis(credentialsId)
                     }
                 }
             }
