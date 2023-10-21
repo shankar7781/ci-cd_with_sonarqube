@@ -65,6 +65,14 @@ pipeline{
                     }
                 }
             }
+            stage('docker image build'){
+                 when { expression {  params.action == 'create' } }
+               steps{
+                    script{
+                        mvnBuild(${params.ImageName},${params.ImageTag},${params.Appname})
+                    }
+                }
+            }
             
     }
 
