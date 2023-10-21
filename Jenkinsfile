@@ -69,7 +69,7 @@ pipeline{
                  when { expression {  params.action == 'create' } }
                steps{
                     script{
-                        mvnBuild(${params.ImageName},${params.ImageTag},${params.Appname})
+                        dockerBuild(${params.ImageName},${params.ImageTag},${params.Appname})
                     }
                 }
             }
