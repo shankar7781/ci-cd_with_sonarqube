@@ -45,7 +45,7 @@ pipeline{
                     }
                 }
             }
-            stage('Quality gate status'){
+            stage('Quality gate status:sonar'){
                  when { expression {  params.action == 'create' } }
                steps{
                     script{
@@ -54,6 +54,15 @@ pipeline{
                     }
                 }
             }
+            stage('Maven build: maven'){
+                 when { expression {  params.action == 'create' } }
+               steps{
+                    script{
+                        mvnBuild()
+                    }
+                }
+            }
+            
     }
 
 }
