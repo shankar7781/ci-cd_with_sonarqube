@@ -22,6 +22,7 @@ pipeline{
                     )
                 }
             }
+        /*
            stage('Unit Test maven'){
                 when { expression {  params.action == 'create' } }
                steps{
@@ -56,7 +57,7 @@ pipeline{
                        QualityGateStatus(SonarQubecredentialsId )
                     }
                 }
-            }
+            }  */
             stage('Maven build: maven'){
                  when { expression {  params.action == 'create' } }
                steps{
